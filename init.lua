@@ -30,7 +30,7 @@ minetest.register_node("castle:rubble", {
 })
 
 minetest.register_craft({
-	output = "castle:stonewall",
+	output = "castle:stonewall 2",
 	recipe = {
 		{"default:cobble"},
 		{"default:desert_stone"},
