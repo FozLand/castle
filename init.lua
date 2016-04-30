@@ -1,3 +1,5 @@
+local load_time_start = os.clock()
+
 dofile(minetest.get_modpath("castle").."/pillars.lua")
 dofile(minetest.get_modpath("castle").."/arrowslit.lua")
 dofile(minetest.get_modpath("castle").."/tapestry.lua")
@@ -389,3 +391,11 @@ else
 		default.node_sound_stone_defaults()
 	)
 end
+
+minetest.log(
+	'action',
+	string.format(
+		'['..minetest.get_current_modname()..'] loaded in %.3fs',
+		os.clock() - load_time_start
+	)
+)
