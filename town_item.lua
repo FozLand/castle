@@ -36,7 +36,7 @@ minetest.register_craft({
 		{"default:steel_ingot", "default:steel_ingot","default:steel_ingot"},
 	}
 })
-
+--[[
 minetest.register_node("castle:workbench",{
 	description = "Workbench",
 	tiles = {"castle_workbench_top.png", "castle_workbench_bottom.png", "castle_workbench_side.png", "castle_workbench_side.png", "castle_workbench_back.png", "castle_workbench_front.png"},
@@ -175,7 +175,7 @@ minetest.register_craft({
 		{"default:tree", "default:tree","default:steel_ingot"},
 	}
 })
-
+--]]
 minetest.register_node("castle:dungeon_stone", {
 	description = "Dungeon Stone",
 	drawtype = "normal",
