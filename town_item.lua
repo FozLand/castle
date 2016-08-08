@@ -334,7 +334,7 @@ else
 		default.node_sound_stone_defaults()
 	)
 end
-
+--[[
 minetest.register_node( "castle:chandelier", {
 	drawtype = "plantlike",
 	description = "Chandelier",
@@ -383,4 +383,4 @@ minetest.register_node( "castle:chandelier_chain", {
 		},
 	},
 })
-
+--]]
