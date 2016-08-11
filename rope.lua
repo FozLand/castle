@@ -117,7 +117,7 @@ minetest.register_abm({
 minetest.register_craft({
 	output = "castle:ropebox",
 	recipe = {
-		{"default:wood"},
+		{"group:wood"},
 		{"castle:ropes"},
 	}
 })

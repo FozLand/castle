@@ -327,8 +327,8 @@ minetest.register_node("castle:ironbound_chest",{
 minetest.register_craft({
 	output = "castle:ironbound_chest",
 	recipe = {
-		{"default:wood", "default:steel_ingot","default:wood"},
-		{"default:wood", "default:steel_ingot","default:wood"}
+		{"group:wood", "default:steel_ingot","group:wood"},
+		{"group:wood", "default:steel_ingot","group:wood"}
 	}
 })
 
