@@ -171,7 +171,7 @@ minetest.register_craft({
 	output = "castle:workbench",
 	recipe = {
 		{"default:steel_ingot","default:steel_ingot","default:steel_ingot"},
-		{"default:wood", "default:wood","default:steel_ingot"},
+		{"group:wood", "group:wood","default:steel_ingot"},
 		{"default:tree", "default:tree","default:steel_ingot"},
 	}
 })
@@ -242,8 +242,8 @@ minetest.register_node("castle:crate", {
 minetest.register_craft({
 	output = "castle:crate",
 	recipe = {
-		{"default:wood", "default:wood", "default:wood"},
-		{"default:wood", "default:steel_ingot", "default:wood"},
+		{"group:wood", "group:wood", "group:wood"},
+		{"group:wood", "default:steel_ingot", "group:wood"},
 	}
 })
 
@@ -334,7 +334,7 @@ else
 		default.node_sound_stone_defaults()
 	)
 end
-
+--[[
 minetest.register_node( "castle:chandelier", {
 	drawtype = "plantlike",
 	description = "Chandelier",
@@ -383,4 +383,4 @@ minetest.register_node( "castle:chandelier_chain", {
 		},
 	},
 })
-
+--]]
