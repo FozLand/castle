@@ -272,7 +272,7 @@ minetest.register_node("castle:ironbound_chest",{
 		local meta = minetest.get_meta(pos)
 		if not has_ironbound_chest_privilege(meta, player) then
 			minetest.log("action", player:get_player_name()..
-					" tried to access a locked chest belonging to "..
+					" tried to access a ironbound chest belonging to "..
 					meta:get_string("owner").." at "..
 					minetest.pos_to_string(pos))
 			return 0
@@ -283,7 +283,7 @@ minetest.register_node("castle:ironbound_chest",{
 		local meta = minetest.get_meta(pos)
 		if not has_ironbound_chest_privilege(meta, player) then
 			minetest.log("action", player:get_player_name()..
-					" tried to access a locked chest belonging to "..
+					" tried to access a ironbound chest belonging to "..
 					meta:get_string("owner").." at "..
 					minetest.pos_to_string(pos))
 			return 0
@@ -294,7 +294,7 @@ minetest.register_node("castle:ironbound_chest",{
 		local meta = minetest.get_meta(pos)
 		if not has_ironbound_chest_privilege(meta, player) then
 			minetest.log("action", player:get_player_name()..
-					" tried to access a locked chest belonging to "..
+					" tried to access a ironbound chest belonging to "..
 					meta:get_string("owner").." at "..
 					minetest.pos_to_string(pos))
 			return 0
@@ -302,16 +302,24 @@ minetest.register_node("castle:ironbound_chest",{
 		return stack:get_count()
 	end,
 	on_metadata_inventory_move = function(pos, from_list, from_index, to_list, to_index, count, player)
-		minetest.log("action", player:get_player_name()..
-				" moves stuff in locked chest at "..minetest.pos_to_string(pos))
+		local who   = player:get_player_name()
+		local what  = " moves stuff in ironbound chest"
+		local where = " at "..core.pos_to_string(pos)
+		minetest.log("action", who..what..where)
 	end,
 	on_metadata_inventory_put = function(pos, listname, index, stack, player)
-		minetest.log("action", player:get_player_name()..
-				" moves stuff to locked chest at "..minetest.pos_to_string(pos))
+		local who   = player:get_player_name()
+		local stuff = stack:get_count().." "..stack:get_name()
+		local what  = " puts "..stuff.." in ironbound chest"
+		local where = " at "..core.pos_to_string(pos)
+		minetest.log("action", who..what..where)
 	end,
 	on_metadata_inventory_take = function(pos, listname, index, stack, player)
-		minetest.log("action", player:get_player_name()..
-				" takes stuff from locked chest at "..minetest.pos_to_string(pos))
+		local who   = player:get_player_name()
+		local stuff = stack:get_count().." "..stack:get_name()
+		local what  = " takes "..stuff.." from ironbound chest"
+		local where = " at "..core.pos_to_string(pos)
+		minetest.log("action", who..what..where)
 	end,
 	on_rightclick = function(pos, node, clicker)
 		local meta = minetest.get_meta(pos)
@@ -392,10 +400,7 @@ else
 	)
 end
 
-minetest.log(
-	'action',
-	string.format(
-		'['..minetest.get_current_modname()..'] loaded in %.3fs',
-		os.clock() - load_time_start
-	)
-)
+if minetest.setting_get("log_mods") then
+	minetest.log('action', string.format('['..minetest.get_current_modname()..']'..
+			' loaded in %.3fs', os.clock() - load_time_start))
+end
